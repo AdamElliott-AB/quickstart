@@ -112,6 +112,7 @@
             <Parameter name="Mode_XBand" parameterTypeRef="bool_t" />
             <Parameter name="Mode_SBand" parameterTypeRef="bool_t" />
             <Parameter name="Mode_Safe" parameterTypeRef="bool_t" />
+            <Parameter name="Measurement" parameterTypeRef="uint32_t" />
         </ParameterSet>
         <ContainerSet>
             <SequenceContainer abstract="true" name="CCSDSPacket">
@@ -174,6 +175,19 @@
                         <ComparisonList>
                             <Comparison value="NotPresent" parameterRef="CCSDS_Packet_ID/SecHdrFlag" />
                             <Comparison value="100" parameterRef="CCSDS_Packet_ID/APID" />
+                        </ComparisonList>
+                    </RestrictionCriteria>
+                </BaseContainer>
+            </SequenceContainer>
+            <SequenceContainer name="Spacecraft2">
+                <EntryList>
+                    <ParameterRefEntry parameterRef="Measurement" />
+                </EntryList>
+                <BaseContainer containerRef="TelemetryPacket">
+                    <RestrictionCriteria>
+                        <ComparisonList>
+                            <Comparison value="NotPresent" parameterRef="CCSDS_Packet_ID/SecHdrFlag" />
+                            <Comparison value="101" parameterRef="CCSDS_Packet_ID/APID" />
                         </ComparisonList>
                     </RestrictionCriteria>
                 </BaseContainer>

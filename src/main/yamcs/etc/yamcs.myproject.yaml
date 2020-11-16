@@ -20,6 +20,9 @@ services:
       backFiller:
         enabled: true
         warmupTime: 60
+  - class: com.example.myproject.SimpleSimulator
+    args:
+      tmPort: 10015
 
 dataLinks:
   - name: udp-in
